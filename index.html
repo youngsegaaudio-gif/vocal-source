@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VOCAL SOURCE</title>
+<meta name="description" content="Vocals people chop into hardstyle. Titles and years only. Not hardstyle tracks. Not audio. Not lyrics." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0c0c0b;
+  --fg: #e8e2d6;
+  --mute: #8a8478;
+  --subtle: #5c5850;
+  --surface: #161412;
+  --surface-2: #1c1a17;
+  --line: rgba(232,226,214,0.12);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--fg); font-family: Nunito, system-ui, sans-serif; }
+button, a { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+header.nav {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+header.nav .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 64px; gap: 16px; }
+.brand { font-family: Bungee, Impact, sans-serif; letter-spacing: 0.04em; }
+.brand span { color: var(--mute); }
+nav a {
+  display: inline-flex; align-items: center; height: 44px; padding: 0 10px;
+  color: var(--mute); font-size: 14px; font-weight: 600;
+}
+nav a.on, nav a:hover { color: var(--fg); }
+.hero { padding: 72px 0 48px; border-bottom: 1px solid var(--line); }
+h1, h2, h3 { font-family: Bungee, Impact, sans-serif; letter-spacing: 0.03em; line-height: 1.05; margin: 0; }
+h1 { font-size: clamp(32px, 6vw, 64px); max-width: 16ch; }
+.lede { max-width: 42ch; color: var(--mute); font-size: 18px; line-height: 1.6; margin-top: 20px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute); }
+.row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 18px; border-radius: 10px; border: 0;
+  font-weight: 700; font-size: 14px;
+}
+.btn.solid { background: var(--fg); color: var(--bg); }
+.btn.ghost { background: transparent; color: var(--fg); box-shadow: 0 0 0 1px var(--line); }
+section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); margin-top: 24px; }
+.card {
+  background: var(--surface); border-radius: 14px; padding: 16px;
+  box-shadow: 0 0 0 1px var(--line); text-align: left; color: inherit; width: 100%;
+}
+.card:hover { background: var(--surface-2); }
+.card .t { font-weight: 700; }
+.card .m { color: var(--mute); font-size: 13px; margin-top: 4px; }
+.card .why { color: var(--mute); font-size: 13px; line-height: 1.5; margin-top: 12px; }
+.chip { display: inline-block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); background: var(--surface-2); border-radius: 999px; padding: 4px 8px; margin-right: 6px; }
+.idea {
+  background: var(--surface); border-radius: 16px; padding: 24px;
+  box-shadow: 0 0 0 1px var(--line); margin-top: 20px;
+}
+.idea h3 { font-size: 28px; }
+.meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+.meta dt { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--subtle); }
+.meta dd { margin: 4px 0 0; }
+.bars { display: flex; height: 56px; overflow: hidden; border-radius: 8px; margin-top: 12px; }
+.bars > div { display: flex; flex-direction: column; justify-content: center; padding: 0 8px; min-width: 0; }
+.bars .intro { background: #2a2723; }
+.bars .break { background: #3a342c; }
+.bars .build { background: #4a4034; }
+.bars .drop { background: #6a5a44; }
+footer { padding: 40px 0 64px; color: var(--mute); font-size: 14px; }
+footer a { margin-right: 14px; }
+.legal p { color: var(--mute); line-height: 1.65; max-width: 62ch; }
+.hidden { display: none; }
+@media (max-width: 640px) {
+  nav a { padding: 0 6px; font-size: 13px; }
+  .meta { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#home">VOCAL <span>SOURCE</span></a>
+    <nav>
+      <a href="#catalog">Catalog</a>
+      <a href="#studio">Studio</a>
+      <a href="#lanes">Lanes</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Titles and years · 90s–now · no audio</p>
+    <h1>Vocals people chop into hardstyle.</h1>
+    <p class="lede">Not hardstyle tracks. Eurodance, house, trance, 90s happy, hands-up. You source and clear the chop.</p>
+    <div class="row">
+      <a class="btn solid" href="#catalog">Browse the catalog</a>
+      <a class="btn ghost" href="#studio">Open the studio</a>
+    </div>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="wrap">
+    <p class="eyebrow">The catalog</p>
+    <h2>Source vocals</h2>
+    <p class="lede">Songs people actually sample. Title, year, and how the chop sits. Not a stem pack.</p>
+    <div class="grid" id="vocal-grid"></div>
+  </div>
+</section>
+
+<section id="studio">
+  <div class="wrap">
+    <p class="eyebrow">Studio</p>
+    <h2>Roll an idea</h2>
+    <p class="lede">A vocal from the pile mapped onto a hard-dance lane. 16-bar DJ phrases. Mix on the 1.</p>
+    <div class="row">
+      <button class="btn solid" id="roll">Roll another</button>
+      <button class="btn ghost" id="copy">Copy notes</button>
+    </div>
+    <article class="idea" id="idea"></article>
+  </div>
+</section>
+
+<section id="lanes">
+  <div class="wrap">
+    <p class="eyebrow">Production lanes</p>
+    <h2>Write into these</h2>
+    <p class="lede">These are acts you write toward — not what you sample.</p>
+    <div class="grid" id="lane-grid"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap legal">
+    <p class="eyebrow">About</p>
+    <h2>A free idea list</h2>
+    <p>VOCAL SOURCE is a catalog of song titles, artists, years, and short notes about how a vocal might be chopped into hardstyle. It does not host audio or lyrics.</p>
+    <p>You source the recording yourself. You clear the chop. Search links are a starting point, not a download.</p>
+    <p>Ads can come later. Tonight this is just the site.</p>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap legal">
+    <p class="eyebrow">Legal</p>
+    <h2>Privacy</h2>
+    <p>No accounts. Ideas you copy stay on this device. We do not collect a mailing list here.</p>
+    <p>Links to YouTube and Discogs leave this site. Those services have their own policies.</p>
+  </div>
+</section>
+
+<section id="terms">
+  <div class="wrap legal">
+    <p class="eyebrow">Legal</p>
+    <h2>Terms</h2>
+    <p>This is not a stem pack, not a lyric sheet, and not a license to use anyone’s recording. If you chop a vocal, you source it and you clear it.</p>
+    <p>The production lanes are names of acts grouped by style. They are not affiliated with this site.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="brand">VOCAL <span>SOURCE</span></p>
+    <p>Free catalog. Titles and years only.</p>
+    <p>
+      <a href="#about">About</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+const VOCALS = [
+  { t:"Better Off Alone", a:"Alice Deejay", y:1998, from:"trance", chop:"hook", why:"The question-hook. The hardstyle break everyone knows." },
+  { t:"What Is Love", a:"Haddaway", y:1993, from:"eurodance", chop:"hook", why:"Three-word hook. Slow the break, chop the drop." },
+  { t:"Everytime We Touch", a:"Cascada", y:2005, from:"hands-up", chop:"hook", why:"THE hands-up vocal. Hardstyle chops it constantly." },
+  { t:"Gypsy Woman", a:"Crystal Waters", y:1991, from:"house", chop:"hook vowel", why:"The la-da-dee is the hardstyle chop. One vowel, pitched." },
+  { t:"No Limit", a:"2 Unlimited", y:1993, from:"eurodance", chop:"shout", why:"Staccato shouts. Gate them to the kick." },
+  { t:"Be My Lover", a:"La Bouche", y:1995, from:"eurodance", chop:"call", why:"Call in the break, response on the drop." },
+  { t:"Freed from Desire", a:"Gala", y:1996, from:"eurodance", chop:"chant", why:"Stadium chant. Crowd layer, not the lead." },
+  { t:"Show Me Love", a:"Robin S", y:1990, from:"house", chop:"hook", why:"Open vowel chorus. Classic pitched hardstyle chop." },
+  { t:"Rhythm Is a Dancer", a:"Snap!", y:1992, from:"eurodance", chop:"spoken + hook", why:"Spoken count + hook shouts. Crowd hits." },
+  { t:"Finally", a:"CeCe Peniston", y:1991, from:"house", chop:"hook", why:"Long held notes. Stretch into a break pad." },
+  { t:"King of My Castle", a:"Wamdue Project", y:1997, from:"house", chop:"hook", why:"Trance-house hook. Euphoric." },
+  { t:"Castles in the Sky", a:"Ian Van Dahl", y:2000, from:"trance", chop:"sung", why:"Hands-up vocal. Euphoric / happy." }
+];
+const LANES = [
+  { n:"Headhunterz", g:"euphoric", bpm:150 },
+  { n:"Sub Zero Project", g:"euphoric", bpm:150 },
+  { n:"Sound Rush", g:"euphoric", bpm:150 },
+  { n:"Phuture Noize", g:"raw", bpm:155 },
+  { n:"Rejecta", g:"raw", bpm:155 },
+  { n:"Warface", g:"raw", bpm:155 },
+  { n:"Angerfist", g:"hardcore", bpm:180 },
+  { n:"Dr Peacock", g:"frenchcore", bpm:200 },
+  { n:"S3RL", g:"happy", bpm:170 },
+  { n:"Darren Styles", g:"ukhc", bpm:170 },
+  { n:"Partyraiser", g:"uptempo", bpm:210 },
+  { n:"D-Sturb", g:"raw", bpm:155 }
+];
+const PHRASES = [
+  [{k:"intro",b:16,l:"Intro"},{k:"break",b:16,l:"Break"},{k:"build",b:16,l:"Build"},{k:"drop",b:32,l:"Drop"}],
+  [{k:"intro",b:16,l:"Intro"},{k:"break",b:32,l:"Break"},{k:"build",b:16,l:"Build"},{k:"drop",b:32,l:"Drop"}],
+  [{k:"break",b:16,l:"Break"},{k:"build",b:16,l:"Build"},{k:"drop",b:16,l:"Drop"},{k:"break",b:16,l:"Break 2"},{k:"drop",b:32,l:"Drop 2"}]
+];
+const grid = document.getElementById("vocal-grid");
+VOCALS.forEach((v,i) => {
+  const b = document.createElement("button");
+  b.className = "card";
+  b.innerHTML = `<div class="t">${v.t}</div><div class="m">${v.a} · ${v.y}</div><div style="margin-top:10px"><span class="chip">${v.from}</span><span class="chip">${v.chop}</span></div><div class="why">${v.why}</div>`;
+  b.onclick = () => { lockV = i; roll(); location.hash = "studio"; };
+  grid.appendChild(b);
+});
+const lanes = document.getElementById("lane-grid");
+LANES.forEach((a,i) => {
+  const b = document.createElement("button");
+  b.className = "card";
+  b.innerHTML = `<div class="t">${a.n}</div><div class="m">${a.g} · ${a.bpm} BPM</div>`;
+  b.onclick = () => { lockA = i; roll(); location.hash = "studio"; };
+  lanes.appendChild(b);
+});
+let lockV = null, lockA = null;
+function pick(arr, i){ return arr[i != null ? i : Math.floor(Math.random()*arr.length)]; }
+function roll(){
+  const v = pick(VOCALS, lockV);
+  const a = pick(LANES, lockA);
+  const ph = pick(PHRASES);
+  const bars = ph.map(p => `<div class="${p.k}" style="flex:${p.b}"><small>${p.b}</small><small>${p.l}</small></div>`).join("");
+  document.getElementById("idea").innerHTML = `
+    <p class="eyebrow">${a.g} · ${a.bpm} BPM · DJ 4×4</p>
+    <h3>${v.t}</h3>
+    <p class="m">${v.a} (${v.y}) into ${a.n}</p>
+    <dl class="meta">
+      <div><dt>Chop</dt><dd>${v.chop}</dd></div>
+      <div><dt>Why</dt><dd>${v.why}</dd></div>
+      <div><dt>Lane</dt><dd>${a.n} · ${a.g}</dd></div>
+      <div><dt>Source</dt><dd><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(v.a+' '+v.t+' '+v.y)}" target="_blank" rel="noreferrer">YouTube title search</a></dd></div>
+    </dl>
+    <div class="bars">${bars}</div>
+    <p class="m" style="margin-top:10px">Mix on the 1. Every block is a multiple of 16. Source and clear the vocal yourself.</p>`;
+  window._notes = `VOCAL SOURCE\n${v.t} — ${v.a} (${v.y})\nLane: ${a.n} (${a.g}, ${a.bpm})\nChop: ${v.chop}\n${v.why}`;
+}
+roll();
+document.getElementById("roll").onclick = () => { lockV = lockA = null; roll(); };
+document.getElementById("copy").onclick = async () => {
+  try { await navigator.clipboard.writeText(window._notes); document.getElementById("copy").textContent = "Copied"; setTimeout(()=>document.getElementById("copy").textContent="Copy notes", 1200); } catch(e) {}
+};
+</script>
+</body>
+</html>
