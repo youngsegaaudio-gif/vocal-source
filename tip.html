@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sound tip of the day · VOCAL SOURCE</title>
+<meta name="theme-color" content="#0c0c0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c0b;--fg:#e8e2d6;--mute:#8a8478;--s:#161412;--s2:#1c1a17;--line:rgba(232,226,214,.12)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:Nunito,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;min-height:56px}
+.brand{font-family:Bungee,sans-serif}.brand span{color:var(--mute)}
+h1,h2{font-family:Bungee,sans-serif;letter-spacing:.03em;line-height:1.1}
+h1{font-size:clamp(28px,6vw,44px)}
+.lede{color:var(--mute);line-height:1.55}
+.card{background:var(--s);border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0}
+.tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.btn{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:var(--fg);color:var(--bg);font-weight:700}
+.btn.ghost{background:transparent;color:var(--fg)}
+input{width:100%;min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--s2);color:var(--fg);padding:0 12px;margin:10px 0}
+ul{color:var(--mute);line-height:1.5;padding-left:18px}
+footer{padding:32px 0;color:var(--mute);font-size:14px}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="./index.html">VOCAL <span>SOURCE</span></a>
+  <a href="./index.html#studio">Studio</a>
+</div></nav>
+<main class="wrap" style="padding:40px 20px 64px">
+  <p class="tag">Logic · hardstyle · mixing</p>
+  <h1>Interesting sound tip of the day</h1>
+  <p class="lede">This bot cannot open your Mac from the internet. Point it at a folder, or tell it what you are mixing. Filenames only — no audio leaves the machine.</p>
+
+  <article class="card" id="daily"></article>
+
+  <article class="card">
+    <p class="tag">Scan a folder</p>
+    <h2>What is on the session</h2>
+    <p class="lede">Pick your Logic bounce folder or a project audio folder. It reads names like Kick, Vox, Bass — then gives mixing advice.</p>
+    <input id="dir" type="file" webkitdirectory multiple aria-label="Pick a session folder">
+    <div id="scan"></div>
+  </article>
+
+  <article class="card">
+    <p class="tag">Ask</p>
+    <h2>What are you mixing</h2>
+    <input id="ask" placeholder="kick, reverse bass, vocal chop, screech…">
+    <button class="btn" id="go" type="button">Get advice</button>
+    <div id="ans" style="margin-top:14px"></div>
+  </article>
+</main>
+<footer class="wrap">Advice only. You still mix it.</footer>
+<script>
+const TIPS = [
+  {h:"Keep the kick short",b:"If the click is longer than the punch, the drop feels small. Fade the tail before the next 1."},
+  {h:"Sidechain the reverse bass",b:"Duck the bass to the kick, not the other way. Kick owns the 1."},
+  {h:"High-pass the chop",b:"Most eurodance vocals sit muddy under a raw kick. Start the cut around 200 and listen."},
+  {h:"One hook, not three",b:"Pick screech or saw or piano. Two hooks in the same octave is mush."},
+  {h:"Mix on the 1",b:"Every phrase is 16 bars. If the vocal enters on bar 3, slide it. DJs will thank you."},
+  {h:"Soft clip last",b:"Clipper after the mix bus, limiter last. If the clipper is eating transients, turn the kick down first."},
+  {h:"Break is quieter than you think",b:"Drop the kick out and drop the vocal 1–2 dB. Intimacy, then the hit."},
+  {h:"Don't tune the kick to the lead",b:"Tune the lead to the kick's body. The kick is the key center people feel."},
+  {h:"Gate shouts to the kick",b:"2 Unlimited type hits. Short gate, same length as the punch."},
+  {h:"Leave the verse out",b:"Hardstyle wants the hook vowel. If you can sing a whole line, you sampled too much."},
+  {h:"Stereo last",b:"Kick and bass mono. Hook can be wide. If the drop vanishes in mono, you stacked width too early."},
+  {h:"One reverb send",b:"Vocal chop and lead share a short plate. Two halls on a 150 drop is fog."},
+  {h:"Build without adding tracks",b:"Filter and volume on what you already have. New layers in the last 8 bars only."},
+  {h:"Check 44.1 vs 48",b:"Logic defaults can drift. If a bounce is dull, look at sample rate before you buy another saturator."},
+  {h:"Reference one drop",b:"Not five. Loop 16 bars of a track in your lane and match kick-to-vocal balance, nothing else."}
+];
+const MIX = {
+  kick:"Keep the body under 80 Hz clean. Click above 3 kHz only as much as the system needs. No two kicks stacked in the same punch.",
+  bass:"Reverse bass follows the kick. Sidechain tight. If it chews the kick, shorten the bass note, don't smash the compressor.",
+  vocal:"Chop the vowel. High-pass. Sit it in the break; thin it in the drop so the kick still hits.",
+  vox:"Chop the vowel. High-pass. Sit it in the break; thin it in the drop so the kick still hits.",
+  lead:"One register. If it fights the kick, high-pass the lead, not the kick.",
+  screech:"Short tail. Tune to the track, then detune 10 cents if it rings against the kick.",
+  saw:"Unison wide, mid mono. Sidechain a little so the kick still punches.",
+  master:"Clip, then limit. If you need more than 3 dB of limiting, the mix is the problem."
+};
+function dayTip(){
+  const i = Math.floor(Date.now()/86400000) % TIPS.length;
+  const t = TIPS[i];
+  document.getElementById("daily").innerHTML = `<p class="tag">Interesting sound tip of the day</p><h2>${t.h}</h2><p class="lede">${t.b}</p>`;
+}
+function advice(q){
+  const s=(q||"").toLowerCase();
+  let key="master";
+  if(/kick|kck/.test(s)) key="kick";
+  else if(/bass|sub|reverse/.test(s)) key="bass";
+  else if(/voc|vox|chop|hook/.test(s)) key="vocal";
+  else if(/screech/.test(s)) key="screech";
+  else if(/saw|lead|supersaw/.test(s)) key="lead";
+  const extra = TIPS.find(t=>t.h.toLowerCase().includes(key)) || TIPS[0];
+  return `<p class="tag">Mixing advice</p><p>${MIX[key]}</p><p class="lede">${extra.h}. ${extra.b}</p>`;
+}
+function scanFiles(files){
+  const names=[...files].map(f=>f.name).slice(0,80);
+  const blob=names.join(" ").toLowerCase();
+  const hits=[];
+  if(/kick|kck|bd/.test(blob)) hits.push(MIX.kick);
+  if(/bass|sub|reese/.test(blob)) hits.push(MIX.bass);
+  if(/voc|vox|vocal|chop/.test(blob)) hits.push(MIX.vocal);
+  if(/lead|saw|screech|synth/.test(blob)) hits.push(MIX.lead);
+  if(!hits.length) hits.push(MIX.master);
+  document.getElementById("scan").innerHTML = `<p class="tag">${names.length} files seen</p><ul>${names.slice(0,12).map(n=>`<li>${n}</li>`).join("")}</ul><p>${hits[0]}</p><p class="lede">Interesting sound tip of the day still sits at the top. This is filename advice, not a listen.</p>`;
+}
+dayTip();
+document.getElementById("dir").addEventListener("change",e=>scanFiles(e.target.files));
+document.getElementById("go").onclick=()=>document.getElementById("ans").innerHTML=advice(document.getElementById("ask").value);
+document.getElementById("ask").addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("ans").innerHTML=advice(e.target.value)});
+</script>
+</body></html>
